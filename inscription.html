@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="connexion.css">
+</head>
+<body>
+    <h1>Inscription</h1>
+
+    <div>
+        <form action="#" method="post" id="inscription">
+            <label for="signup-email">Mail :</label><br>
+            <input type="email" id="signup-email" name="email" placeholder="Votre email" required maxlength="50" autocomplete="email">
+
+            <br>
+            <label for="signup-password">Mot de passe :</label><br>
+            <input type="password" id="signup-password" name="password" placeholder="Votre mot de passe" required minlength="4">
+
+            <br>
+            <label for="confirm-password">Confirmer le mot de passe :</label><br>
+            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirmez votre mot de passe" required minlength="4">
+
+            <br>
+            <button type="submit">Créer mon compte</button>
+            <p id="message" aria-live="polite"></p>
+        </form>
+
+        <a href="connexion.html">J'ai déjà un compte</a>
+    </div>
+
+    <script src="elior.js"></script>
+</body>
+</html>

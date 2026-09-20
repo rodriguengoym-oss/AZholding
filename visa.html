@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistance visa</title>
+    <link rel="stylesheet" href="visa.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Assistance visa</h1>
+        </div>
+    </header>
+
+    <main class="visa-wrap">
+        <p class="box">Quel problème avez-vous avec votre visa ?</p>
+
+        <form id="visa-form" class="visa-form">
+            <fieldset class="champs">
+                <legend>Choisissez votre situation</legend>
+
+                <label for="visa-expire">
+                    <input type="radio" id="visa-expire" name="visa-problem" value="expire">
+                    Votre visa expire
+                </label>
+
+                <label for="visa-expire">
+                    <input type="radio" id="visa-expire" name="visa-problem" value="expire">
+                    Demande de VISA
+                </label>
+
+                <label for="visa-indisponible">
+                    <input type="radio" id="visa-indisponible" name="visa-problem" value="indisponible">
+                    Visa indisponible
+                </label>
+
+                <div class="field-group">
+                    <label for="visa-email">Email (optionnel)</label>
+                    <input type="email" id="visa-email" name="visa-email" placeholder="Votre email">
+                </div>
+
+                <div class="field-group">
+                    <label for="visa-detail">Détail du problème</label>
+                    <textarea id="visa-detail" name="visa-detail" rows="4" placeholder="Décrivez votre situation..." required></textarea>
+                </div>
+
+                <p id="visa-message" aria-live="polite"></p>
+                <button type="submit" class="visa-button">Enregistrer ma demande</button>
+            </fieldset>
+        </form>
+
+        <div class="resus">
+            <p class="bot">
+                En cas de problème d’obtention de visa lié à nos services, veuillez
+                <a href="contact.html">contacter nos services</a>.
+                Un professionnel vous prendra rendez-vous rapidement.
+                Pour un souci lié à votre ancien visa, mentionnez-le dans votre message.
+            </p>
+        </div>
+    </main>
+</body>
+</html>

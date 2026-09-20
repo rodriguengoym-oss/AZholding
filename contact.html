@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <div class="contact-page">
+        <header class="topbar">
+            <div class="logo">AZ Holding</div>
+            <nav>
+                <a href="Index.html">Accueil</a>
+                <a href="destination.html">Destinations</a>
+                <a href="visa.html">Visa</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
+
+        <main class="contact-container">
+            <section class="contact-info">
+                <p class="eyebrow">Nous sommes là pour vous aider</p>
+                <h1>Contactez-nous</h1>
+                <p class="intro">
+                    Vous pouvez nous contacter à tout moment pour obtenir de l’aide,
+                    des informations ou une assistance pour votre demande de visa.
+                </p>
+
+                <div class="info-box">
+                    <h3>Informations</h3>
+                    <p><strong>Email :</strong> rodriguengoym@gmail.com</p>
+                    <p><strong>Téléphone :</strong> +243 89 959 7311</p>
+                    <p><strong>Adresse :</strong> Kinshasa, République Démocratique du Congo</p>
+                </div>
+
+                <a href="Index.html" class="back-link">Retour à l'accueil principal</a>
+            </section>
+
+            <section class="form-box">
+                <h2>Remplissez ce formulaire</h2>
+
+                <form id="contact-form">
+                    <div class="grid">
+                        <div class="field">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="postnom">Postnom</label>
+                            <input type="text" id="postnom" name="postnom" placeholder="Votre postnom">
+                        </div>
+
+                        <div class="field">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Votre email" required>
+                        </div>
+                    </div>
+
+                    <div class="field full-width">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" maxlength="300" required placeholder="Décrivez votre besoin ici..."></textarea>
+                    </div>
+
+                    <p id="contact-message" aria-live="polite"></p>
+                    <button type="submit" class="env">Envoyer</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="elior.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eaf4ff, #ebc174);
+    color: #1a1a1a;
+}
+
+.hero {
+    text-align: center;
+    padding: 30px 20px 20px;
+    background: linear-gradient(135deg, #1d4e89, #153b67);
+    color: #fff;
+}
+
+.hero h1 {
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 0.08em;
+}
+
+.visa-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+}
+
+.box {
+    text-align: center;
+    font-size: clamp(1.3rem, 2vw, 2.2rem);
+    padding: 25px 15px;
+    font-weight: 600;
+}
+
+.visa-form {
+    display: flex;
+    justify-content: center;
+}
+
+.champs {
+    width: min(100%, 540px);
+    border: 1px solid rgba(29, 78, 137, 0.2);
+    border-radius: 18px;
+    padding: 24px 20px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 12px 24px rgba(21, 59, 103, 0.08);
+}
+
+.champs legend {
+    padding: 0 10px;
+    font-weight: 700;
+    color: #153b67;
+}
+
+.champs label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.15rem;
+    margin: 18px 0;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.champs input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #153b67;
+}
+
+.resus {
+    text-align: center;
+    line-height: 1.8;
+    padding: 30px 15px 0;
+    font-size: 1.05rem;
+}
+
+.bot {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 14px;
+    padding: 22px 18px;
+}
+
+.bot a {
+    color: #153b67;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.bot a:hover {
+    text-decoration: underline;
+}
+
+.field-group {
+    display: grid;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.field-group label {
+    font-weight: 700;
+    color: #153b67;
+}
+
+.field-group input,
+.field-group textarea {
+    width: 100%;
+    border: 1px solid rgba(21, 59, 103, 0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.field-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+#visa-message {
+    min-height: 1.2em;
+    margin-top: 14px;
+    font-weight: 700;
+    color: #153b67;
+}
+
+.visa-button {
+    margin-top: 18px;
+    display: inline-block;
+    border: none;
+    background: linear-gradient(135deg, #d17639, #153b67);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.visa-button:hover {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 560px) {
+    .hero {
+        padding-top: 22px;
+    }
+
+    .box {
+        padding-top: 10px;
+    }
+
+    .champs label {
+        font-size: 1rem;
+    }
+}
+

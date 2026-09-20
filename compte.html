@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte</title>
+    <link rel="stylesheet" href="connexion.css">
+</head>
+<body class="account-page">
+    <h1>Mon Compte</h1>
+
+    <div class="account-shell">
+        <div class="account-header">
+            <p id="compte-email">Connectez-vous pour voir votre compte.</p>
+            <button id="logout-btn" class="logout-button" type="button">Déconnexion</button>
+        </div>
+
+        <a href="Index.html" class="home-link">Retour à l'accueil principal</a>
+
+        <div class="account-grid">
+            <section class="account-card">
+                <h2>Mes informations</h2>
+                <ul id="account-details"></ul>
+            </section>
+
+            <section class="account-card">
+                <h2>Mes demandes</h2>
+                <div id="account-requests" class="request-list">
+                    <p>Aucune demande enregistrée.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="elior.js"></script>
+    <script>
+        const compteEmail = document.getElementById('compte-email');
+        const accountDetails = document.getElementById('account-details');
+        const accountRequests = document.getElementById('account-requests');
+        const accountLogoutBtn = document.getElementById('logout-btn');
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+
+        function renderAccount() {
+            if (compteEmail) {
+                if (currentUser && currentUser.email) {
+                    compteEmail.textContent = 'Connecté en tant que : ' + currentUser.email;
+                } else {
+                    compteEmail.textContent = 'Connectez-vous pour voir votre compte.';
+                }
+            }
+
+            if (accountDetails) {
+                if (currentUser && currentUser.email) {
+                    accountDetails.innerHTML = `
+                        <li><strong>Email :</strong> ${currentUser.email}</li>
+                        <li><strong>Statut :</strong> Compte actif</li>
+                        <li><strong>Type :</strong> Client AZ Holding</li>
+                    `;
+                } else {
+                    accountDetails.innerHTML = '<li>Veuillez vous connecter pour accéder à vos informations.</li>';
+                }
+            }
+
+            if (accountRequests) {
+                const contactMessages = getStoredList('contactMessages', []);
+                const visaRequests = getStoredList('visaRequests', []);
+                const filteredContacts = currentUser && currentUser.email
+                    ? contactMessages.filter(item => item.email && item.email.toLowerCase() === currentUser.email.toLowerCase())
+                    : [];
+                const filteredVisa = currentUser && currentUser.email
+                    ? visaRequests.filter(item => item.email && item.email.toLowerCase() === currentUser.email.toLowerCase())
+                    : [];
+
+                const allRequests = [...filteredContacts.map(item => ({
+                    type: 'Contact',
+                    label: item.message ? item.message.slice(0, 50) + '...' : 'Message envoyé',
+                    date: item.createdAt || new Date().toISOString()
+                })), ...filteredVisa.map(item => ({
+                    type: 'Visa',
+                    label: item.detail ? item.detail.slice(0, 50) + '...' : item.type,
+                    date: item.createdAt || new Date().toISOString()
+                }))];
+
+                if (allRequests.length === 0) {
+                    accountRequests.innerHTML = '<p>Aucune demande enregistrée.</p>';
+                    return;
+                }
+
+                accountRequests.innerHTML = allRequests.map(request => `
+                    <div class="request-item">
+                        <strong>${request.type}</strong>
+                        <span>${request.label}</span>
+                        <small>${new Date(request.date).toLocaleString('fr-FR')}</small>
+                    </div>
+                `).join('');
+            }
+        }
+
+        renderAccount();
+
+        if (accountLogoutBtn) {
+            accountLogoutBtn.addEventListener('click', function () {
+                localStorage.removeItem('currentUser');
+                window.location.href = 'connexion.html';
+            });
+        }
+    </script>
+</body>
+</html>
